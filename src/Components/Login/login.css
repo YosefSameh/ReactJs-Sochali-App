@@ -1,0 +1,54 @@
+.register {
+    width: 400px;
+    background: #fff;
+    border: 1px solid #dddfe2;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    border-radius: 8px;
+    padding: 1rem;
+    align-items: center;
+    text-align: center;
+
+}
+
+.register > form input {
+    border-radius: 20px;
+    border: 2px solid lightgrey;
+    outline: none;
+    color: #1d2129;
+    margin: 2% 0;
+    width: 90%;
+    padding: 12px;
+    font-size: 16px;
+
+}
+.center{
+    width: 100%;
+    height: 588px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(#2A00B7,#42006C);
+}
+.sudmit{
+    font-size: 19px;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 220px;
+    height: 59px;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 50px;
+    background-color: #4c00b4;
+    border: 0;
+    transition: .3s;
+}
+.sudmit:hover{
+    background-color: #5600ce;
+}
+.sudmit-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
