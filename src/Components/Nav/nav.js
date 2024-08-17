@@ -138,6 +138,13 @@ const renderMobileMenu = (
       </IconButton>
     </MenuItem>
     <MenuItem>
+      <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+        <Link to="chat">
+            <Button variant="contained" style={{backgroundColor:"rgb(13 202 240)"}}>Chat</Button>
+            </Link>
+      </IconButton>
+    </MenuItem>
+    <MenuItem>
       <IconButton
         size="large"
         aria-label="show 17 new notifications"
@@ -214,9 +221,6 @@ const renderMobileMenu = (
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              {/* <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge> */}
               <Link  to="/rigster">
               <Button variant="contained" style={{backgroundColor:"rgb(13 202 240)"}}>Rigster</Button>
               </Link>
