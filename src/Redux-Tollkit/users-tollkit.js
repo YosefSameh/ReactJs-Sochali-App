@@ -1,9 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+const token = localStorage.getItem("token")
 
-
-export const fetchUsers = createAsyncThunk("users/fetchUsers" , async (config)=>{
-
+export const fetchUsers = createAsyncThunk("users/fetchUsers" , async ()=>{
+    const config = {
+        headers: {'Authorization': `Bearer ${token}`,'Content-Type': 'application/json'}
+    };
     try {
         const response = await axios.get("https://node-js-sochali-app.vercel.app/api/users" , config);
         return response.data

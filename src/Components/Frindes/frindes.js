@@ -59,7 +59,7 @@ const FrindesFollowing = ()=> {
         }
     };
     useEffect(()=>{
-        dispatch(fetchUsers(config))
+        dispatch(fetchUsers())
     },[])
     if (loading) {
             return <div><LoadingCircular/></div>
@@ -106,7 +106,7 @@ const FrindesFollowing = ()=> {
         toString[postId] = false
         localStorage.setItem("followStatus",JSON.stringify(toString))
 
-        dispatch(fetchUsers(config))
+        dispatch(fetchUsers())
         dispatch(fetchPosts({url,config}));
 
         toast.success('UnFollw User  Success ', {

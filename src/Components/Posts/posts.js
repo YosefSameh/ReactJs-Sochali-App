@@ -187,7 +187,7 @@ useEffect(() => {
                 });
         }
         await dispatch(fetchFollow({url:UrlFollow,method,config}))
-        dispatch(fetchUsers(config))
+        dispatch(fetchUsers())
         
         toast.success('Follow User Success ', {
             position: "top-right",

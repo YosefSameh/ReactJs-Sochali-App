@@ -30,7 +30,7 @@ export default function ProfilePage() {
       }
     };
     useEffect(() => {
-      dispatch(fetchUsers(config));
+      dispatch(fetchUsers());
     }, [dispatch]);
 
 

@@ -43,7 +43,7 @@ const AddPost = ()=> {
     };
     
     useEffect(() => {
-        dispatch(fetchUsers(config));
+        dispatch(fetchUsers());
     }, [dispatch]);
 
     const { users } = useSelector(state => state.users);
