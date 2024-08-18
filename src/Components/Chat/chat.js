@@ -29,11 +29,10 @@ const Chat = () => {
   const idUser = localStorage.getItem("id")
   const dispatch = useDispatch()
   const { users,loading,error } = useSelector(state => state.users);
+  // const newSocket = io("http://localhost:3001");
+  // const newSocket = io("https://node-js-sochali-app.vercel.app");
   useEffect(() => {
-  
-const newSocket = io("https://node-js-sochali-app.vercel.app", {
-    withCredentials: true
-});
+    const newSocket = io("https://node-js-sochali-app.vercel.app");
     setSocket(newSocket);
     dispatch(fetchUsers())
   
