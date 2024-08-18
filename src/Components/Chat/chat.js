@@ -30,7 +30,7 @@ const Chat = () => {
   const dispatch = useDispatch()
   const { users,loading,error } = useSelector(state => state.users);
   useEffect(() => {
-   const socket = io("https://node-js-sochali-app.vercel.app", {
+   const newSocket = io("https://node-js-sochali-app.vercel.app", {
     withCredentials: true,
     extraHeaders: {
         "my-custom-header": "abcd"
