@@ -32,7 +32,13 @@ const Chat = () => {
   // const newSocket = io("http://localhost:3001");
   // const newSocket = io("https://node-js-sochali-app.vercel.app");
   useEffect(() => {
-    const newSocket = io("https://node-js-sochali-app.vercel.app");
+   const newSocket = io("https://api.example.com", {
+  withCredentials: true,
+  extraHeaders: {
+    "my-custom-header": "abcd",
+    "Content-Type": "application/json"
+  }
+});
     setSocket(newSocket);
     dispatch(fetchUsers())
   
