@@ -35,7 +35,6 @@ const Chat = () => {
    const newSocket = io("https://node-js-sochali-app.vercel.app", {
   withCredentials: true,
   extraHeaders: {
-    "my-custom-header": "abcd",
     "Content-Type": "application/json"
   }
 });
