@@ -8,7 +8,6 @@ import ProfilePage from './Components/Profile/profil';
 import Save from './Components/Saved/save';
 import { ToastContainer } from 'react-toastify';
 import { useEffect } from 'react';
-import Chat from './Components/Chat/chat';
 
 
 function App() {
@@ -59,8 +58,7 @@ theme="light"
     <Route path="rigster" element={<Rigster/>} /> 
     <Route path="profile/:userId" element={<ProfilePage/>} /> 
     <Route path="profile" element={<ProfilePage/>} /> 
-    <Route path="saved" element={<Save/>} /> 
-    <Route path="chat" element={<Chat/>} /> 
+    <Route path="saved" element={<Save/>} />  
     </Routes> 
 
     
