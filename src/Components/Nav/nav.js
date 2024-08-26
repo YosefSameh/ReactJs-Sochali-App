@@ -14,7 +14,9 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import { Avatar, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUsers } from '../../Redux-Tollkit/users-tollkit';
+import LoadingCircular from '../loading/loading-Circular';
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
@@ -63,11 +65,23 @@ const Search = styled('div')(({ theme }) => ({
 const Nav = ()=>{
     const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
-
+  const idUser = localStorage.getItem("id")
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
   const dispatch = useDispatch()
   const token = localStorage.getItem("token")
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+}, [dispatch]);
+
+const { users,loading } = useSelector(state => state.users);
+
+const user = users.find(user => user._id === idUser);
+
+// if (!users) {
+//   return <div><lo</div>
+// }
   
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -87,7 +101,8 @@ const Nav = ()=>{
   };
   const handelLogOut = ()=>{
     handleMenuClose()
-
+    localStorage.clear()
+    window.location.href = "/login";
   }
 
   const menuId = 'primary-search-account-menu';
@@ -178,15 +193,6 @@ const renderMobileMenu = (
               <Box sx={{ flexGrow: 1,marginBottom:0 }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
           {token ?
           <Link style={{textDecoration:"none",color:"white"}} to="/home">
           <Typography
@@ -235,7 +241,14 @@ const renderMobileMenu = (
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              
+              {!user ?
+              
+              <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" >{loading ?<LoadingCircular/> :null }</Avatar>
+              : 
+              
+              <Avatar alt="Remy Sharp" src={user.imgProfile} >{loading ?<LoadingCircular/> :null }</Avatar>
+              }
             </IconButton>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

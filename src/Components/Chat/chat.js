@@ -32,7 +32,9 @@ const Chat = () => {
   // const newSocket = io("http://localhost:3001");
   // const newSocket = io("https://node-js-sochali-app.vercel.app");
   useEffect(() => {
-    const newSocket = io("https://node-js-sochali-app.vercel.app");
+    const newSocket = io("https://node-js-sochali-app.vercel.app",{
+        withCredentials: true
+    });
     setSocket(newSocket);
     dispatch(fetchUsers())
   

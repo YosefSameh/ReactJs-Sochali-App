@@ -34,7 +34,7 @@ const AddPost = ()=> {
     const token = localStorage.getItem("token")
     const [valueInput,setValueInput] = useState("")
     const [changeFile,setChangeFile] = useState("")
-    let idUser = localStorage.getItem("id")
+    const idUser = localStorage.getItem("id")
     const config = {
         headers: {
     'Authorization': `Bearer ${token}`,
