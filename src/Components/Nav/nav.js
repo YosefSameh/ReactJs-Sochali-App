@@ -152,13 +152,7 @@ const renderMobileMenu = (
             </Link>
       </IconButton>
     </MenuItem>
-    <MenuItem>
-      <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-        <Link to="chat">
-            <Button variant="contained" style={{backgroundColor:"rgb(13 202 240)"}}>Chat</Button>
-            </Link>
-      </IconButton>
-    </MenuItem>
+    
     <MenuItem>
       <IconButton
         size="large"
