@@ -1,16 +1,12 @@
-import { Avatar, Badge, IconButton, Stack, styled } from "@mui/material";
+import { Avatar, Badge, Stack, styled } from "@mui/material";
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import XIcon from '@mui/icons-material/X';
-import EditIcon from '@mui/icons-material/Edit';
 import { Link } from "react-router-dom";
 import './sectionLeft.css'
 import FrindesFollowing from "../Frindes/frindes";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../../Redux-Tollkit/users-tollkit";
 import { useEffect } from "react";
-import LoadingCircular from "../loading/loading-Circular";
 
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
@@ -42,14 +38,6 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
     },
 }));
 // =============
-const StyledBadge2 = styled(Badge)(({ theme }) => ({
-    '& .MuiBadge-badge': {
-    right: -3,
-    top: 13,
-    border: `2px solid ${theme.palette.background.paper}`,
-    padding: '0 4px',
-    },
-}));
 
 
 
@@ -124,32 +112,6 @@ const SectionLeft = ()=> {
                     </div>
                 </div>
                 <hr/>
-                {/* <div className="parent-3 mb-3">
-                    <h5 className="mb-3">Social Profile</h5>
-                    <div className="d-flex  align-items-center mb-3">
-                        <XIcon style={{fontSize:30}}/>
-                        <p className="fw-bold mb-0 ms-1 text-black-50">X</p>
-                        <div style={{flex:1}} className="d-flex justify-content-end">
-                            <IconButton aria-label="cart">
-                                <StyledBadge2 color="secondary">
-                                    <EditIcon style={{cursor:"pointer"}} />
-                                </StyledBadge2>
-                            </IconButton>
-                        </div>
-                    </div>
-                    <div className="d-flex align-items-center">
-                        <LinkedInIcon style={{fontSize:30}}/>
-                        <p className="fw-bold mb-0 ms-1 text-black-50">LinkedIn</p>
-                        <div style={{flex:1,cursor:"pointer"}} className="d-flex justify-content-end">
-                            <IconButton aria-label="cart">
-                                <StyledBadge2 color="secondary">
-                                    <EditIcon style={{cursor:"pointer"}} />
-                                </StyledBadge2>
-                            </IconButton>
-                        </div>
-                    </div>
-                    
-                </div> */}
                 
             </div>
                 {/* Freinds */}

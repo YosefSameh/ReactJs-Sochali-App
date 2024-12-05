@@ -6,8 +6,7 @@ export const fetchUsers = createAsyncThunk("users/fetchUsers" , async ()=>{
     const config = {
         headers: {'Authorization': `Bearer ${token}`,'Content-Type': 'application/json'}
     };
-    console.log(config,"token");
-    
+   
     try {
         const response = await axios.get("https://node-js-sochali-app.vercel.app/api/users" , config);
         return response.data
@@ -42,7 +41,6 @@ const SliceUsers = createSlice({
         .addCase(fetchUsers.fulfilled, (state, action) => {
             state.loading = false;
             state.users = action.payload.data.Users;
-            console.log(action.payload,"action")
           })
         
       }

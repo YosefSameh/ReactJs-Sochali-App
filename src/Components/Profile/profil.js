@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   MDBCol,
   MDBContainer,
@@ -7,62 +7,61 @@ import {
   MDBCardText,
   MDBCardBody,
   MDBCardImage,
-} from 'mdb-react-ui-kit';
-import FrindesFollowing from '../Frindes/frindes';
-import Posts from '../Posts/posts';
-import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers } from '../../Redux-Tollkit/users-tollkit';
-import LoadingCircular from '../loading/loading-Circular';
-
-
+} from "mdb-react-ui-kit";
+import FrindesFollowing from "../Frindes/frindes";
+import Posts from "../Posts/posts";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchUsers } from "../../Redux-Tollkit/users-tollkit";
+import LoadingCircular from "../loading/loading-Circular";
 
 export default function ProfilePage() {
- const token = localStorage.getItem("token")
- const idUser = localStorage.getItem("id")
- const {users,error,loading} = useSelector(state => state.users)
- const {userId} = useParams()
- const dispatch = useDispatch()
- const config = {
+  const token = localStorage.getItem("token");
+  const idUser = localStorage.getItem("id");
+  const { users, error, loading } = useSelector((state) => state.users);
+  const { userId } = useParams();
+  const dispatch = useDispatch();
+  const config = {
     headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
-      }
-    };
-    useEffect(() => {
-      dispatch(fetchUsers());
-    }, [dispatch]);
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  };
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
 
+  let URL = "";
+  let user = "";
+  if (!userId) {
+    user = users.find((user) => user._id === idUser);
 
-    let  URL = ""
-    let  user = ""
-    if(!userId){
-      user = users.find(user => user._id === idUser);
-      
-      URL = `https://node-js-sochali-app.vercel.app/api/profile`
-    }else{
-      URL = `https://node-js-sochali-app.vercel.app/api/profile/${userId}`
-      // dispatch(fetchUsers(config))
-      user = users.find(user => user._id === userId);
-  
-  
-}
-if(!user){
-  return <div><LoadingCircular/></div>
-}
-if(!users){
-  return <div><LoadingCircular/></div>
-}
-if(error){
-  return <div>{error}</div>
-}
+    URL = `https://node-js-sochali-app.vercel.app/api/profile`;
+  } else {
+    URL = `https://node-js-sochali-app.vercel.app/api/profile/${userId}`;
+    // dispatch(fetchUsers(config))
+    user = users.find((user) => user._id === userId);
+  }
+  if (!user) {
+    return (
+      <div>
+        <LoadingCircular />
+      </div>
+    );
+  }
+  if (!users) {
+    return (
+      <div>
+        <LoadingCircular />
+      </div>
+    );
+  }
+  if (error) {
+    return <div>{error}</div>;
+  }
 
-
-
-  
-    
   return (
-    <section style={{ backgroundColor: '#eee' }}>
+    <section style={{ backgroundColor: "#eee" }}>
       <MDBContainer className="py-5">
         <MDBRow>
           <MDBCol lg="4">
@@ -72,62 +71,58 @@ if(error){
                   src={user.imgProfile}
                   alt="avatar"
                   className="rounded-circle"
-                  style={{ width: '150px',height:"150px" }}
-                  fluid />
+                  style={{ width: "150px", height: "150px" }}
+                  fluid
+                />
                 <p className="text-muted mb-1 mt-1">Front End Developer</p>
-                <div className="d-flex justify-content-center mb-2">
-                </div>
+                <div className="d-flex justify-content-center mb-2"></div>
               </MDBCardBody>
             </MDBCard>
-          {/* frindes following */}
+            {/* frindes following */}
             <div>
-                <FrindesFollowing/>
+              <FrindesFollowing />
             </div>
           </MDBCol>
-          
-          
-         <MDBCol lg="7">
-         <div className="d-flex flex-column mt-4">
-            <MDBCard >
-              <MDBCardBody>
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Full Name</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    
-                     <MDBCardText className="text-muted">{user.firstName} {user.lastName}</MDBCardText>
-                    
-                    {/* <MDBCardText className="text-muted">{user.firstName} {user.lastName}</MDBCardText>
-                      */}
-                  </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Email</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                  
-                     <MDBCardText className="text-muted">{user.email}</MDBCardText>
-                     
-                     
-                     
-                     {/* <MDBCardText className="text-muted">{user.email}</MDBCardText> */}
-                     
-                  </MDBCol>
-                </MDBRow>
-              </MDBCardBody>
-            </MDBCard>
 
-            <MDBRow>
-            </MDBRow>
-          {/* ==========posts */}
-          {/*  */}
-          
+          <MDBCol lg="7">
+            <div className="d-flex flex-column mt-4">
+              <MDBCard>
+                <MDBCardBody>
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Full Name</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBCardText className="text-muted">
+                        {user.firstName} {user.lastName}
+                      </MDBCardText>
 
-          <Posts url={URL} token={config}/>
-          </div>
+                      {/* <MDBCardText className="text-muted">{user.firstName} {user.lastName}</MDBCardText>
+                       */}
+                    </MDBCol>
+                  </MDBRow>
+                  <hr />
+                  <MDBRow>
+                    <MDBCol sm="3">
+                      <MDBCardText>Email</MDBCardText>
+                    </MDBCol>
+                    <MDBCol sm="9">
+                      <MDBCardText className="text-muted">
+                        {user.email}
+                      </MDBCardText>
+
+                      {/* <MDBCardText className="text-muted">{user.email}</MDBCardText> */}
+                    </MDBCol>
+                  </MDBRow>
+                </MDBCardBody>
+              </MDBCard>
+
+              <MDBRow></MDBRow>
+              {/* ==========posts */}
+              {/*  */}
+
+              <Posts url={URL} token={config} />
+            </div>
           </MDBCol>
           {/* ==========posts */}
         </MDBRow>

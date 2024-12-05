@@ -4,7 +4,6 @@ import axios from "axios";
 
 
 export const fetchSave = createAsyncThunk("save/fetchSave", async ({ url, method, config })=>{
-    console.log();
     
     try {
         const response = await axios({ url, method, ...config });
@@ -37,7 +36,7 @@ const SliceSave = createSlice({
         .addCase(fetchSave.fulfilled, (state, action) => {
             state.loading = false;
             state.save = action.payload;
-            console.log(action.payload,"actionSave")
+            
           })
         
       }

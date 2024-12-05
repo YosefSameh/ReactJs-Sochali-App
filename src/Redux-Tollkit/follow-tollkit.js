@@ -4,7 +4,6 @@ import axios from "axios";
 
 
 export const fetchFollow = createAsyncThunk("follow/fetchFollow", async ({ url, method, config })=>{
-    console.log();
     
     try {
         const response = await axios({ url, method, ...config });
@@ -37,7 +36,6 @@ const SliceFollow= createSlice({
         .addCase(fetchFollow.fulfilled, (state, action) => {
             state.loadingF = false;
             state.follow = action.payload;
-            console.log(action.payload,"actionFollow")
           })
         
       }

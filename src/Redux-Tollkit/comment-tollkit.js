@@ -36,7 +36,7 @@ const SliceComment = createSlice({
         .addCase(fetchComments.fulfilled, (state, action) => {
             state.loading = false;
             state.comment = action.payload;
-            console.log(action.payload,"actionComments")
+
           })
         
       }

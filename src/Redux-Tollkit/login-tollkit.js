@@ -36,7 +36,7 @@ const SliceLogin = createSlice({
         .addCase(fetchLogin.fulfilled, (state, action) => {
             state.loading = false;
             state.user.push(action.payload.data) 
-            console.log(action.payload,"action");
+            
           })
         
       }

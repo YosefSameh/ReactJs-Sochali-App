@@ -3,10 +3,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 
 export const Upload = createAsyncThunk("upload/Upload", async ({url,formData})=>{
-
-    
-    console.log(url,formData);
-    
         
         const response = await fetch(url,{
             method:"post",
@@ -40,7 +36,6 @@ const SliceUpload = createSlice({
         .addCase(Upload.fulfilled, (state, action) => {
             state.loading = false;
             state.file = action.payload.url;
-            console.log(action.payload,"actionUPload")
           })
         
       }

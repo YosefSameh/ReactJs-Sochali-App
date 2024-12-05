@@ -8,6 +8,7 @@ import ProfilePage from './Components/Profile/profil';
 import Save from './Components/Saved/save';
 import { ToastContainer } from 'react-toastify';
 import { useEffect } from 'react';
+import Chat from './Components/Chat/chat';
 
 
 function App() {
@@ -36,19 +37,19 @@ function App() {
       <Nav/>
 
       <ToastContainer
-position="top-right"
-autoClose={2500}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-limit={2}
-theme="light"
+      position="top-right"
+      autoClose={2500}
+      hideProgressBar={false}
+      newestOnTop={false}
+      closeOnClick
+      rtl={false}
+      pauseOnFocusLoss
+      draggable
+      pauseOnHover
+      limit={2}
+      theme="light"
 
-/>
+      />
 
 
  <Routes>
@@ -58,7 +59,8 @@ theme="light"
     <Route path="rigster" element={<Rigster/>} /> 
     <Route path="profile/:userId" element={<ProfilePage/>} /> 
     <Route path="profile" element={<ProfilePage/>} /> 
-    <Route path="saved" element={<Save/>} />  
+    <Route path="saved" element={<Save/>} /> 
+    <Route path="chat" element={<Chat/>} /> 
     </Routes> 
 
     

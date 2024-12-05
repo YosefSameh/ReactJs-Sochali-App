@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const fetchPosts = createAsyncThunk("posts/fetchPosts", async ({ url, config })=>{
 
-  console.log(config,"config",url,"url");
+  
     try {
         const response = await axios.get(url,config);
         return response.data
@@ -37,8 +37,6 @@ const SlicePosts = createSlice({
         .addCase(fetchPosts.fulfilled, (state, action) => {
             state.loading = false;
             state.posts = action.payload.data.posts;
-            // state.posts = action.payload;
-            console.log(action.payload,"action")
           })
         
       }
