@@ -79,15 +79,6 @@ const AddPost = ()=> {
     
     
     const handelAddPost = async ()=>{
-        const url = 'https://node-js-sochali-app.vercel.app/api/posts' 
-        
-        const image  = await UploadFiles(changeFile[0])
-        
-        const body = {
-            titel:valueInput,
-            imgPost:image.url
-        }
-        
         if (!valueInput) {
             return toast.warning('The Input Is Empty ', {
                 position: "top-right",
@@ -101,10 +92,19 @@ const AddPost = ()=> {
                 transition: Bounce,
             });
         }
+        const url = 'https://node-js-sochali-app.vercel.app/api/posts' 
+        
+        const image  = await UploadFiles(changeFile[0])
+        
+        const body = {
+            titel:valueInput,
+            imgPost:image.url
+        }
+        
     
         
         await dispatch(addPost({body,token}))
-        dispatch(fetchPosts({url,config}))
+        await dispatch(fetchPosts({url,config}))
 
         toast.success('Add Post Success ', {
         position: "top-right",
@@ -118,6 +118,7 @@ const AddPost = ()=> {
         transition: Bounce,
         });
         setValueInput("")
+        setChangeFile("")
         
     }
     return(
