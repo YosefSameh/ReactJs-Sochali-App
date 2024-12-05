@@ -87,7 +87,7 @@ if(error){
           
           
          <MDBCol lg="7">
-         <div className='d-flex flex-column'>
+         <div className="d-flex flex-column mt-4">
             <MDBCard >
               <MDBCardBody>
                 <MDBRow>
