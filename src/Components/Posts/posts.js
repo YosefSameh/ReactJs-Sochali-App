@@ -524,7 +524,7 @@ useEffect(() => {
 
                     <div className='ms-4'>
                         <p className='m-0'>{ele.firstName}{ele.lastName}</p>
-                        <p>{ele.createAt}</p>
+                        <p>{ele.createAt.slice(0,10)}</p>
                     </div>
                     
                     {ele.user_id === idUser ? null : 
